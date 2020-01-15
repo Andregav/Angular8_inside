@@ -1,0 +1,496 @@
+$prime-color: #70C4B4;
+$darkGrey-color: #868686;
+$lightGrey-color: #F0F0F0;
+$grey-color: #B5B4B8;
+$black1-color: #141A39;
+$blue-color: #43AFFF;
+
+.patient {
+  width: 1100px;
+  margin-right: auto;
+  margin-left: auto;
+
+  &__back-button {
+    margin-top: 22px;
+    margin-left: 12px;
+    margin-bottom: 22px;
+    background: none;
+    border: none;
+    font-family: Roboto Medium;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #70C4B4;
+    cursor: pointer;
+  }
+
+  &__back-button:before {
+    content: ' \276E';
+    margin-right: 3px;
+  }
+
+  &__data {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28px;
+  }
+
+  &__blockleft {
+    display: flex;
+    width: 400px;
+    height: 125px;
+    background: #FFFFFF;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.05), -5px -5px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+  }
+
+  &__foto {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 22px 30px 23px 30px;
+  }
+
+  &__name {
+    margin-top: 26px;
+    margin-bottom: 7px;
+    font-family: Roboto Medium;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+  }
+
+  &__adress {
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &__blockright {
+    display: flex;
+    width: 670px;
+    height: 125px;
+    background: #FFFFFF;
+    box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.05), 5px 10px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+  }
+
+  &__blockleft-age,
+  &__blockleft-sex {
+    position: relative;
+    width: 223px;
+  }
+
+  &__blockleft-age:after,
+  &__blockleft-sex:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 25px;
+    width: 1px;
+    height: 75px;
+    background: #F1F1F1;
+
+  }
+
+  &__age-text,
+  &__sex-text,
+  &__date-text {
+    margin: 23px 0 21px 30px;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: $darkGrey-color;
+  }
+
+  &__age,
+  &__sex,
+  &__date {
+    margin-left: 30px;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 34px;
+    color: $black1-color;
+  }
+}
+
+.task {
+  margin-bottom: 50px;
+
+  &__titles-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 435px;
+  }
+
+  &__title {
+    margin: 0;
+    padding: 6px 14px 6px 15px;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 22px;
+    border-radius: 10px 10px 0 0;
+    color: $darkGrey-color;
+    background-color: $lightGrey-color;
+    cursor: pointer;
+  }
+
+  &__title.active {
+    font-family: Roboto Medium;
+    color: #000;
+    background: #FFFFFF;
+    box-shadow: 7px -5px 10px rgba(0, 0, 0, 0.05), -7px 12px 11px rgba(0, 0, 0, 0.05), -8px -9px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  &__description {
+    position: relative;
+    background-color: #fff;
+  }
+
+  &__info-wrap,
+  .history,
+  .labs {
+    position: relative;
+    width: 1100px;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.05), -5px 10px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 10px 10px;
+  }
+
+  &__number {
+    margin-top: 0;
+    margin-left: 50px;
+    margin-bottom: 1.83px;
+    padding-top: 15.02px;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: $grey-color;
+  }
+
+  &__edit {
+    position: absolute;
+    right: 55px;
+    font-size: 16px;
+    top: 15px;
+
+    .fa-edit:before {
+      color: $prime-color;
+    }
+  }
+
+
+
+  &__sickDescription {
+    margin-left: 50px;
+    margin-bottom: 18px;
+    padding: 10px 11px;
+    width: 1000px;
+    height: 224px;
+    background: #FFFFFF;
+    border: 1px solid #B5B4B8;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: #3B3B3D;
+
+  }
+
+  &__description-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  &__status-title {
+    margin: 0;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: $grey-color;
+    margin-bottom: 8px;
+  }
+
+  &__status {
+    margin-bottom: 47px;
+    padding: 5px 13px 4px 12px;
+    background: #70C4B4;
+    border: 1px solid #54CAB4;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    -webkit-appearance: button;
+    appearance: button;
+    cursor: pointer;
+    text-align-last: center;
+  }
+
+  &__status-item {
+    background: $blue-color;
+    border-radius: 0 0 7px 7px;
+  }
+
+  &__diagnos-title {
+    margin-top: 0px;
+    margin-bottom: 8px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: $grey-color;
+  }
+
+  &__diagnos {
+    padding: 5px 10px;
+    width: 500px;
+    height: 35px;
+    border: 1px solid #B5B4B8;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+
+}
+
+.history {
+  position: relative;
+  background-color: #fff;
+
+  &__list {
+    padding: 50px;
+    width: 100%;
+
+    th {
+      text-align: left;
+    }
+
+    td {
+      padding: 5px 0;
+    }
+  }
+}
+
+.labs {
+  position: relative;
+  background-color: #fff;
+
+  &__list {
+    padding: 50px;
+    width: 100%;
+
+    th {
+      text-align: left;
+    }
+
+    td {
+      padding: 5px 0;
+    }
+  }
+}
+
+%sign__button {
+  margin-bottom: 70px;
+  padding: 5px 24px;
+  font-family: Roboto;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 18px;
+  color: #FFFFFF;
+  border-radius: 5px;
+  border: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.sign {
+  margin-bottom: 50px;
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+
+
+  &__button {
+    @extend %sign__button;
+    background-color: $blue-color;
+  }
+
+  &__button:hover {
+    background-color: #00c8ff;
+  }
+
+  &__saveTask {
+    @extend %sign__button;
+    background-color: $prime-color;
+    margin-left: 30px;
+  }
+
+  &__saveTask:hover {
+    background-color: #54CAB4;
+  }
+}
+
+.sign-block {
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    margin: 0;
+  }
+
+  &__taskName {
+    width: 20vw;
+    font-family: Roboto Medium;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 17px;
+    color: #000000;
+  }
+
+  &__details {
+    width: 20vw;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 17px;
+    color: $blue-color;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__description-block {
+    width: 500px;
+    margin-left: -250px;
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    background-color: #ffffff;
+    border: 2px solid $prime-color;
+    outline: none;
+    -webkit-box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 8px 23px 0px rgba(0, 0, 0, 0.3);
+
+
+    .overlay_popup {
+      position: fixed;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.15);
+      z-index: 1;
+      cursor: pointer;
+    }
+  }
+
+  &__description-wrap {
+    position: relative;
+    cursor: default;
+    z-index: 2;
+  }
+
+  .description_close {
+    position: absolute;
+    top: -5px;
+    right: -30px;
+    width: 22px;
+    height: 22px;
+    font-size: 0;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    background: none;
+    outline: none;
+  }
+
+  .description_close::after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  .description_close::before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .description_close::before,
+  .description_close::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 2px;
+    width: 19px;
+    height: 3px;
+    background-color:
+      #d0d0d0;
+    border-radius: 1px;
+  }
+
+  &__description {
+    padding: 15px;
+    background-color: #fff;
+  }
+
+  &__date-wrap {
+    width: 20vw;
+    text-align: center;
+  }
+
+  &__date {
+    font-family: Roboto Medium;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 17px;
+    color: #000000;
+  }
+
+  &__time {
+    font-family: Roboto Medium;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 17px;
+    color: #000000;
+  }
+
+  &__persolnal-wrap {
+    width: 20vw;
+    text-align: right;
+  }
+
+  &__personalName {
+    font-family: Roboto Medium;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+  }
+
+  &__personalTitle {
+    font-family: Roboto Medium;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 17px;
+    color: $grey-color;
+  }
+}

@@ -1,0 +1,9 @@
+<section class="units">
+  <h2 class="units__title">Units of the hospital</h2>
+  <div class="units-wrap">
+    <div *ngFor="let unit of units" class="units__item" routerLink="/{{unit.link}}">
+      <img src="{{unit.url}}" alt="{{unit.name}}" class="img">
+      <p class="item__text">{{unit.name}}</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+<div>
+  <div class="overlay_popup" (click)="closeDetails()"></div>
+  <div class="task-details">
+    <div class="task-details__person">
+      <p class="task-details__personalName" id="subtaskStaff">Felix Weiss</p>
+      <p class="task-details__personalTitle" id="subtaskPosition">Doctor</p>
+    </div>
+    <h2 class="task-details__title">Subtask</h2>
+    <div class="task-details__top-action">
+      <select [(ngModel)]="subtaskName" id="subtaskName">
+        <option value="Heart rate check">Heart rate check</option>
+        <option value="Therapy and treatment">Therapy and treatment</option>
+        <option value="Blood pressure control">Blood pressure control</option>
+      </select>
+      <div *ngIf="notSelect" class="task-details__notSelect">
+        <p>Please select name of subtast</p>
+      </div>
+      <div class="task-details__timing">
+        <div class="task-details__timing-wrap timingin">
+          <button (click)="startTime()" id="buttonin" class="task-details__button">Start</button>
+          <p class="task-details__date" id="datein"></p>
+          <p class="task-details__time" id="timein"></p>
+          <div *ngIf="notStart" class="timingin__notStart">
+            <p>Please start timing</p>
+          </div>
+        </div>
+        <div class="task-details__timing-wrap">
+          <button (click)="stopTime()" id="buttonout" disabled class="task-details__button">Stop</button>
+          <p class="task-details__date" id="dateout"></p>
+          <p class="task-details__time" id="timeout"></p>
+          <div *ngIf="notStop" class="timingin__notStart">
+            <p>Please stop timing</p>
+          </div>
+        </div>
+        <div>
+          <button (click)="resetTime()" class="task-details__button">New start</button>
+        </div>
+      </div>
+    </div>
+    <div class="task-details__bottom-action">
+      <textarea name="" id="subtaskDescription" cols="30" rows="10" placeholder="Description of the subtask" [(ngModel)]="subtaskDescription"></textarea>
+      <div *ngIf="notFillField">
+        <p class="task-details__errorText">Please fill the field</p>
+      </div>
+      <div class="bottom-action__buttons">
+        <button class="task-details__button" (click)="saveSubtask()">Save</button>
+        <button class="task-details__button" (click)="closeDetails()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<section class="unit">
+  <button (click)="goBack()" class="unit__back-button">Back</button>
+  <div>
+    <h2 class="unit__title">{{link.name}}</h2>
+    <div class="unit__subhead">
+      <h3 class="unit__subtitle">Active patients</h3>
+      <input type="text" placeholder="Search for patients.." class="unit__search" id="listInput" (keyup)="onSearch()">
+    </div>
+    <table class="unit-list" id="list">
+      <tr>
+        <th class="unit-list__title" (click)="sortName()">Patient name <i class="fas fa-sort"></i>
+        </th>
+        <th class="unit-list__title" (click)="sortDx()">Diagnosis <i class="fas fa-sort"></i>
+        </th>
+        <th class="unit-list__title" (click)="sortVisit()">Last visit <i class="fas fa-sort"></i>
+        </th>
+        <th class="unit-list__title" (click)="sortStaff()">Staff <i class="fas fa-sort"></i>
+        </th>
+      </tr>
+      <tr *ngFor="let patients of link.patient">
+        <td class="unit-list__name" routerLink="/{{link.link}}/{{patients.linkName}}">{{patients.name}}</td>
+        <td class="unit-list__dx">{{patients.dx}}</td>
+        <td class="unit-list__date">{{patients.date | date:'medium'}}</td>
+        <td class="unit-list__personal">{{patients.staff}}, <span class="unit-list__position">{{patients.position}}</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>

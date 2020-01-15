@@ -1,0 +1,137 @@
+<main class="patient">
+  <button (click)="goBack()" class="patient__back-button">Back</button>
+  <section *ngIf="patient">
+    <div class="patient__data">
+      <div class="patient__blockleft">
+        <img src="{{dataPatient.foto}}" alt="Photo of the patient" class="patient__foto">
+        <div>
+          <h2 class="patient__name">{{dataPatient.name}}</h2>
+          <p class="patient__adress">{{dataPatient.adress}}</p>
+        </div>
+      </div>
+      <div class="patient__blockright">
+        <div class="patient__blockleft-age">
+          <h2 class="patient__age-text">Age</h2>
+          <p class="patient__age">{{dataPatient.age}}</p>
+        </div>
+        <div class="patient__blockleft-sex">
+          <h2 class="patient__sex-text">Sex</h2>
+          <p class="patient__sex">{{dataPatient.sex}}</p>
+        </div>
+        <div>
+          <h2 class="patient__date-text">Last visit</h2>
+          <p class="patient__date">{{dataPatient.date | date:'M/d/yy'}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="task">
+    <div>
+      <div class="task__titles-wrap">
+        <h2 class="task__title active" id="patient-info" (click)="getPatientInfo()">Current info</h2>
+        <h2 class="task__title" id="patient-history" (click)="getPatientHistory()">History</h2>
+        <h2 class="task__title" id="patient-labs" (click)="getPatientLab()">Labs/Pictures/Tests</h2>
+      </div>
+      <div class="task__description tabcontent" id="info" *ngIf="patient_info">
+        <div class="task__info-wrap">
+          <h2 class="task__number">№ <span id="task_number">{{dataPatient.task_number}}</span></h2>
+          <div class="task__edit" (click)="editTextarea()"><i class="fas fa-edit"></i></div>
+          <textarea placeholder="Description of the disease" class="task__sickDescription" [(ngModel)]="dataPatient.task__description" [disabled]="isDisabled" id="task__sickDescription"></textarea>
+          <div class="task__description-bottom">
+            <div>
+              <h3 class="task__status-title">Status task</h3>
+              <select class="task__status" id="statusTask" (change)="statusTask($event.target.value)">
+                <option class="task__status-item" value="execution">Execution</option>
+                <option class="task__status-item" value="done">Done</option>
+              </select>
+            </div>
+            <div>
+              <h3 class="task__diagnos-title">Diagnosis</h3>
+              <input type="text" placeholder="Diagnosis.." class="task__diagnos" [(ngModel)]="dataPatient.dx">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="history tabcontent" id="history" *ngIf="patient_history">
+        <table class="history__list">
+          <tr>
+            <th>Number <i class="fas fa-sort"></i>
+            </th>
+            <th>Name/Code <i class="fas fa-sort"></i>
+            </th>
+            <th>Creation Date <i class="fas fa-sort"></i>
+            </th>
+            <th>Submission deadline date <i class="fas fa-sort"></i>
+            </th>
+            <th>Status <i class="fas fa-sort"></i>
+            </th>
+          </tr>
+          <tr *ngFor="let task of tasks">
+            <td>{{task.task_number}}</td>
+            <td>{{task.task_code}}</td>
+            <td>{{task.timeOpen | date:'medium'}}</td>
+            <td>{{task.timeClose | date:'medium'}}</td>
+            <td>{{task.task__status}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="labs tabcontent" id="labs" *ngIf="patient_labs">
+        <table class="labs__list">
+          <tr>
+            <th>Number <i class="fas fa-sort"></i>
+            </th>
+            <th>Name/Code <i class="fas fa-sort"></i>
+            </th>
+            <th>Date <i class="fas fa-sort"></i>
+            </th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Blood analysis</td>
+            <td>Nov 10, 2019</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Blood analysis</td>
+            <td>Oct 15, 2019</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Blood analysis</td>
+            <td>Sep 20, 2019</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="sign">
+    <div class="sign__buttons">
+      <button class="sign__button" (click)="openDetails()">Action</button>
+      <button class="sign__saveTask" *ngIf="buttonSaveTask" (click)="saveTask()">Save task</button>
+    </div>
+    <app-task *ngIf="openTask"></app-task>
+    <div *ngFor="let task of dataPatient.tasks" class="sign-block">
+      <p class="sign-block__taskName">{{task.name}}</p>
+      <p class="sign-block__details" (click)="openTaskDescription(task)">Details</p>
+      <div *ngIf="taskDescription" class="sign-block__description-block">
+        <div class="overlay_popup" (click)="closeTaskDescription()"></div>
+        <div class="sign-block__description-wrap">
+          <button class="description_close" type="button" title="Close" (click)="closeTaskDescription()">Close</button>
+          <p class="sign-block__description">{{taskDescription.description}}</p>
+        </div>
+      </div>
+      <div class="sign-block__date-wrap">
+        <p class="sign-block__date">{{task.timein | date:'dd.MM.yyyy'}}</p>
+        <p class="sign-block__time">{{task.timein | date:'HH:mm'}}</p>
+      </div>
+      <div class="sign-block__date-wrap">
+        <p class="sign-block__date">{{task.timeout | date:'dd.MM.yyyy'}}</p>
+        <p class="sign-block__time">{{task.timeout | date:'HH:mm'}}</p>
+      </div>
+      <div class="sign-block__persolnal-wrap">
+        <p class="sign-block__personalName">{{task.staff}}</p>
+        <p class="sign-block__personalTitle">{{task.position}}</p>
+      </div>
+    </div>
+  </section>
+</main>
